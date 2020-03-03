@@ -1,4 +1,4 @@
-import Pojo.Item;
+import Pojo.ItemCategory;
 import io.restassured.http.Cookies;
 import io.restassured.http.ContentType;
 import org.testng.annotations.Test;
@@ -11,7 +11,7 @@ import java.util.Map;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.hasItem;
 
-public class ItemTest {
+public class ItemCategoryTest {
     private Cookies cookies;
     private String name;
 
@@ -32,7 +32,7 @@ public class ItemTest {
                 .extract().response().getDetailedCookies();
 
         // Create an item category
-        Item item = new Item();
+        ItemCategory item = new ItemCategory();
         List<String> role = new ArrayList<>();
 
         role.add("5b8bedceb1e0bfc07b00882a");

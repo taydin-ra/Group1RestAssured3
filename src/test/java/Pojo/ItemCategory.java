@@ -2,7 +2,7 @@ package Pojo;
 
 import java.util.List;
 
-public class Item {
+public class ItemCategory {
     private String name;
     private Boolean active;
     private String schoolId;
