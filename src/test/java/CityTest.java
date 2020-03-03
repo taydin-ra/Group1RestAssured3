@@ -19,7 +19,7 @@ public class CityTest {
     private String code;
     private String countryId;
     private Cookies cookies;
-   
+
 
     @BeforeClass
 
@@ -58,7 +58,7 @@ public class CityTest {
                 .extract().jsonPath().getString("id");
     }
 
-    @Test
+    @Test(priority = 1)
     public void createCity() {
 
         Integer randomNumber = new Random().nextInt(5);
@@ -100,8 +100,21 @@ public class CityTest {
 
         // delete the cities
         for (int i = 0; i < myCitiesID.size(); i++) {
-            deleteTheCity( myCitiesID.get(i));
+            deleteTheCity(myCitiesID.get(i));
         }
+    }
+
+    @Test(priority = 2)
+    public void deleteTheCountry() {
+        given()
+                .cookies(cookies)
+                .when()
+                .log().body()
+                .delete("https://test-basqar.mersys.io/school-service/api/countries/" + countryId)
+                .then()
+                .log().body()
+                .statusCode(200)
+        ;
     }
 
     private void deleteTheCity(String s) {
@@ -149,7 +162,7 @@ public class CityTest {
                 .then()
                 .log().body()
                 .statusCode(201)
-               ;
+        ;
 
 
     }
