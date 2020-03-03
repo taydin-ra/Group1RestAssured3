@@ -100,16 +100,20 @@ public class CityTest {
 
         // delete the cities
         for (int i = 0; i < myCitiesID.size(); i++) {
-            given()
-                    .cookies(cookies)
-                    .when()
-                    .log().body()
-                    .delete("https://test-basqar.mersys.io/school-service/api/cities/" + cityId)
-                    .then()
-                    .log().body()
-                    .statusCode(200)
-            ;
+            deleteTheCity( myCitiesID.get(i));
         }
+    }
+
+    private void deleteTheCity(String s) {
+        given()
+                .cookies(cookies)
+                .when()
+                .log().body()
+                .delete("https://test-basqar.mersys.io/school-service/api/cities/" + cityId)
+                .then()
+                .log().body()
+                .statusCode(200)
+        ;
     }
 
     private void createCity(String countryId) {
