@@ -19,7 +19,7 @@ public class CityTest {
     private String code;
     private String countryId;
     private Cookies cookies;
-    private String cityId;
+   
 
     @BeforeClass
 
@@ -140,7 +140,7 @@ public class CityTest {
         c1.setId(countryId);
         city.setCountry(c1);
 
-        cityId = given()
+        given()
                 .cookies(cookies)
                 .contentType(ContentType.JSON)
                 .body(city)
@@ -149,7 +149,7 @@ public class CityTest {
                 .then()
                 .log().body()
                 .statusCode(201)
-                .extract().jsonPath().getString("id");
+               ;
 
 
     }
