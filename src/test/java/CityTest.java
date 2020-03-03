@@ -13,7 +13,7 @@ import java.util.Random;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
-public class CountryTest {
+public class CityTest {
 
     private String name;
     private String code;
