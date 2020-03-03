@@ -109,7 +109,7 @@ public class CityTest {
                 .cookies(cookies)
                 .when()
                 .log().body()
-                .delete("https://test-basqar.mersys.io/school-service/api/cities/" + cityId)
+                .delete("https://test-basqar.mersys.io/school-service/api/cities/" + s)
                 .then()
                 .log().body()
                 .statusCode(200)
